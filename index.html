@@ -1,214 +1,140 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-    <title>Service History</title>
-    <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #ffe9e9;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Header */
-    .header {
-      background-color: #F61414;
-      color: white;
-      padding: 5px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    /* Tabs */
-    .tabs {
-      display: flex;
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .tab {
-      flex: 1;
-      text-align: center;
-      padding: 12px 0;
-      cursor: pointer;
-      font-weight: bold;
-      color: #555;
-    }
-
-    .tab.active {
-      border-bottom: 3px solid #e60012;
-      color: #e60012;
-    }
-
-    /* Container for history cards */
-    .container-header {
-      max-width: 500px;
-      margin: 0px auto;
-      padding: 0 0px;
-    }
-
-    .container {
-      max-width: 500px;
-      margin: 15px auto;
-      padding: 0 15px;
-    }
-
-    .card {
-      background-color: #fff;
-      border-radius: 12px;
-      padding: 15px 20px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .card-header .latest {
-      background-color: #ed0014;
-      color: #ffffff;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-    }
-
-    .card p {
-      margin: 4px 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .card p span.label {
-      font-weight: bold;
-      color: #e60012;
-    }
-
-    .card p span.amount {
-      color: #555;
-      font-weight: bold;
-    }
-    </style>
-    
-  </head>
-  <body>
-<script>
-      window.onload = function () {
-
-        liff.init({ liffId: "2008586830-gDpZdXmV" })
-          .then(() => {
-
-            if (liff.isLoggedIn()) {
-              const x = document.getElementById("abc");
-
-              x.onclick = () => {
-                sendMessage();
-              };
-
-              console.log("User already logged in");
-            } else {
-              liff.login();
-            }
-
-          })
-          .catch((err) => {
-            console.error("LIFF init error:", err);
-          });
-
-      };
-
-      function sendMessage() {
-        liff.sendMessages([
-          {
-            type: "text",
-            text: "Hello, World!",
-          },
-        ])
-        .then(() => {
-          liff.closeWindow();
-        })
-        .catch((err) => {
-          console.log("error", err);
-        });
-      }
-    </script>
-
-
-    
-<div class="container-header">  
-
-    <div class="header">
-        <img class="h-auto max-w-lg mx-auto rounded-base" src="https://img5.pic.in.th/file/secure-sv1/logo__fixfit.webp" alt="image description">
-    </div>
-
-
-    <div class="tabs">
-        <div class="tab active">ประวัติการเข้ารับบริการ</div>
-        <div class="tab">นัดหมายเข้ารับบริการ</div>
-    </div>
-  </div>
-    
-  <div class="container">  
-    <p class="text-sm text-heading text-center text-fg-brand/50">
-      ขณะนี้แสดงแค่ข้อมูลย้อนหลัง 3 ครั้งล่าสุดเท่านั้นนะคะ
-    </p>
+<!-- Page content hidden until login -->
+<div id="pageContent" class="hidden">
+<div class="container-header">
+  <div class="header">
+    <img class="h-auto max-w-lg mx-auto rounded-base" src="https://img5.pic.in.th/file/secure-sv1/logo__fixfit.webp" alt="image description">
   </div>
 
-  <div class="container"> 
-        <!-- Card 1 -->
-        <div class="card">
-            <div class="card-header">
-                28 พฤศจิกายน 2568
-                <div class="latest">ล่าสุด</div>
-            </div>
-            <p><span class="label">ทะเบียนรถ:</span> กก 567</p>
-            <p><span class="label">สาขา:</span> บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</p>
-            <p><span class="label">ประเภทบริการ:</span> ตรวจเช็กระยะ 50,000 กม.</p>
-            <p><span class="label">รายละเอียด:</span> เปลี่ยนถ่ายน้ำมันเครื่อง, ตรวจสอบเบรก, ตรวจสภาพยาง</p>
-            <p><span class="label">พนักงานรับรถ:</span> สมชาย ปวศรีงาม</p>
-            <p><span class="label">ค่าบริการ:</span> <span class="amount">3,784.75 บาท</span></p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-            <div class="card-header">
-                14 มกราคม 2568
-            </div>
-            <p><span class="label">ทะเบียนรถ:</span> กก 567</p>
-            <p><span class="label">สาขา:</span> บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</p>
-            <p><span class="label">ประเภทบริการ:</span> ตรวจเช็กระยะ 40,000 กม.</p>
-            <p><span class="label">รายละเอียด:</span> เปลี่ยนถ่ายน้ำมันเครื่อง, เปลี่ยนกรองอากาศ, ตรวจสอบแบตเตอรี่, ตรวจสภาพเบรก</p>
-            <p><span class="label">พนักงานรับรถ:</span> ศักดิ์ กระจ่างพันธุ์</p>
-            <p><span class="label">ค่าบริการ:</span> <span class="amount">4,200.00 บาท</span></p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card">
-            <div class="card-header">
-                9 ตุลาคม 2567
-            </div>
-            <p><span class="label">ทะเบียนรถ:</span> กก 567</p>
-            <p><span class="label">สาขา:</span> บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</p>
-            <p><span class="label">ประเภทบริการ:</span> ซ่อมระบบแอร์</p>
-            <p><span class="label">รายละเอียด:</span> เติมน้ำยาแอร์, ล้างคอยล์เย็น</p>
-            <p><span class="label">พนักงานรับรถ:</span> วิชัย หิรัญพฤกษ์</p>
-            <p><span class="label">ค่าบริการ:</span> <span class="amount">1,900.00 บาท</span></p>
-        </div>
-        
+  <div class="tabs">
+    <div class="tab active" id="historyTab">ประวัติการเข้ารับบริการ</div>
+    <div class="tab" id="appointmentTab">นัดหมายเข้ารับบริการ</div>
+  </div>
 </div>
 
-    
-  </body>
-  </html>
+<div class="container" id="historyNotice">  
+  <p class="text-sm text-heading text-center text-fg-brand/50">
+    ขณะนี้แสดงแค่ข้อมูลย้อนหลัง 3 ครั้งล่าสุดเท่านั้นนะคะ
+  </p>
+</div>
+
+<div class="container" id="historyContent"> 
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="card-header">28 พฤศจิกายน 2568<div class="latest">ล่าสุด</div></div>
+    <p><span class="label">ทะเบียนรถ:</span> กก 567</p>
+    <p><span class="label">สาขา:</span> บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</p>
+    <p><span class="label">ประเภทบริการ:</span> ตรวจเช็กระยะ 50,000 กม.</p>
+    <p><span class="label">รายละเอียด:</span> เปลี่ยนถ่ายน้ำมันเครื่อง, ตรวจสอบเบรก, ตรวจสภาพยาง</p>
+    <p><span class="label">พนักงานรับรถ:</span> สมชาย ปวศรีงาม</p>
+    <p><span class="label">ค่าบริการ:</span> <span class="amount">3,784.75 บาท</span></p>
+  </div>
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="card-header">14 มกราคม 2568</div>
+    <p><span class="label">ทะเบียนรถ:</span> กก 567</p>
+    <p><span class="label">สาขา:</span> บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</p>
+    <p><span class="label">ประเภทบริการ:</span> ตรวจเช็กระยะ 40,000 กม.</p>
+    <p><span class="label">รายละเอียด:</span> เปลี่ยนถ่ายน้ำมันเครื่อง, เปลี่ยนกรองอากาศ, ตรวจสอบแบตเตอรี่, ตรวจสภาพเบรก</p>
+    <p><span class="label">พนักงานรับรถ:</span> ศักดิ์ กระจ่างพันธุ์</p>
+    <p><span class="label">ค่าบริการ:</span> <span class="amount">4,200.00 บาท</span></p>
+  </div>
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="card-header">9 ตุลาคม 2567</div>
+    <p><span class="label">ทะเบียนรถ:</span> กก 567</p>
+    <p><span class="label">สาขา:</span> บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</p>
+    <p><span class="label">ประเภทบริการ:</span> ซ่อมระบบแอร์</p>
+    <p><span class="label">รายละเอียด:</span> เติมน้ำยาแอร์, ล้างคอยล์เย็น</p>
+    <p><span class="label">พนักงานรับรถ:</span> วิชัย หิรัญพฤกษ์</p>
+    <p><span class="label">ค่าบริการ:</span> <span class="amount">1,900.00 บาท</span></p>
+  </div>
+</div>
+
+<!-- Appointment form -->
+<div class="container hidden" id="appointmentContent">
+  <form id="appointmentForm" class="space-y-4 bg-white p-4 rounded-md shadow-md">
+    <div>
+      <label class="block font-bold mb-1">ชื่อผู้ใช้รถ:</label>
+      <input type="text" class="w-full border rounded px-2 py-1" placeholder="กรอกชื่อผู้ใช้รถ" required />
+    </div>
+    <div>
+      <label class="block font-bold mb-1">ทะเบียนรถ:</label>
+      <input type="text" class="w-full border rounded px-2 py-1" placeholder="กรอกทะเบียนรถ" required />
+    </div>
+    <div>
+      <label class="block font-bold mb-1">วันที่เข้ารับบริการ:</label>
+      <input type="date" class="w-full border rounded px-2 py-1" required />
+    </div>
+    <div>
+      <label class="block font-bold mb-1">เวลาที่ต้องการ:</label>
+      <input type="time" class="w-full border rounded px-2 py-1" required />
+    </div>
+    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded">ส่งข้อมูลนัดหมาย</button>
+  </form>
+</div>
+</div>
+
+<script>
+// Tab switching
+const historyTab = document.getElementById('historyTab');
+const appointmentTab = document.getElementById('appointmentTab');
+const historyContent = document.getElementById('historyContent');
+const appointmentContent = document.getElementById('appointmentContent');
+
+historyTab.addEventListener('click', () => {
+  historyTab.classList.add('active');
+  appointmentTab.classList.remove('active');
+  historyContent.classList.remove('hidden');
+  appointmentContent.classList.add('hidden');
+});
+
+appointmentTab.addEventListener('click', () => {
+  appointmentTab.classList.add('active');
+  historyTab.classList.remove('active');
+  appointmentContent.classList.remove('hidden');
+  historyContent.classList.add('hidden');
+});
+
+// LIFF login & content display
+async function main() {
+  try {
+    await liff.init({ liffId: "2008586830-gDpZdXmV" });
+
+    if (!liff.isLoggedIn()) {
+      liff.login(); // Force login
+      return;
+    }
+
+    document.getElementById('pageContent').classList.remove('hidden');
+
+    const profile = await liff.getProfile();
+    console.log("Logged in user:", profile);
+
+  } catch (err) {
+    console.error("LIFF init error:", err);
+  }
+}
+
+main();
+
+// Optional: handle form submission via LIFF message
+const form = document.getElementById('appointmentForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  let text = 'นัดหมายเข้ารับบริการ:\n';
+  formData.forEach((value, key) => text += `${key}: ${value}\n`);
+
+  if (liff.isLoggedIn()) {
+    try {
+      await liff.sendMessages([{ type: 'text', text }]);
+      alert('ส่งข้อมูลนัดหมายเรียบร้อย');
+      liff.closeWindow();
+    } catch (err) {
+      console.error(err);
+    }
+  } else {
+    liff.login();
+  }
+});
+</script>
