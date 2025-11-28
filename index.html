@@ -106,6 +106,7 @@
   <body>
     
 <!-- Page content hidden until login -->
+<div id="pageContent" class="hidden">
 <div id="pageContent">
 <div class="container-header">
   <div class="header">
@@ -209,48 +210,7 @@ appointmentTab.addEventListener('click', () => {
   historyNotice.classList.add('hidden');
 });
 
-    // LIFF login & content display
-    async function main() {
-      try {
-        await liff.init({ liffId: "2008586830-gDpZdXmV" });
 
-        if (!liff.isLoggedIn()) {
-          liff.login(); // Force login
-          return;
-        }
-
-        document.getElementById('pageContent').classList.remove('hidden');
-
-        const profile = await liff.getProfile();
-        console.log("Logged in user:", profile);
-
-      } catch (err) {
-        console.error("LIFF init error:", err);
-      }
-    }
-
-    main();
-
-    // Optional: handle form submission via LIFF message
-    const form = document.getElementById('appointmentForm');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      let text = 'นัดหมายเข้ารับบริการ:\n';
-      formData.forEach((value, key) => text += `${key}: ${value}\n`);
-
-      if (liff.isLoggedIn()) {
-        try {
-          await liff.sendMessages([{ type: 'text', text }]);
-          alert('ส่งข้อมูลนัดหมายเรียบร้อย');
-          liff.closeWindow();
-        } catch (err) {
-          console.error(err);
-        }
-      } else {
-        liff.login();
-      }
-    });
   </script>
 </script>
 </body>
