@@ -10,26 +10,27 @@
     <title>Service History</title>
     <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #F7F8FA;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe9e9;
       margin: 0;
       padding: 0;
     }
 
-    .container {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
+    /* Header */
+    .header {
+      background-color: #F61414;
+      color: white;
+      padding: 5px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
     }
 
     /* Tabs */
     .tabs {
       display: flex;
       background-color: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-bottom: 1px solid #ddd;
     }
 
     .tab {
@@ -37,136 +38,144 @@
       text-align: center;
       padding: 12px 0;
       cursor: pointer;
-      font-weight: 500;
-      color: #7A7A7A;
-      transition: all 0.3s;
+      font-weight: bold;
+      color: #555;
     }
 
     .tab.active {
-      background-color: #fff;
-      color: #cd0707;
-      font-weight: 600;
-      border-bottom: 3px solid #cd0707;
+      border-bottom: 3px solid #e60012;
+      color: #e60012;
     }
 
-    /* Cards */
+    /* Container for history cards */
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+
     .card {
       background-color: #fff;
       border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .card-header {
-      font-weight: 600;
-      margin-bottom: 8px;
       display: flex;
       justify-content: space-between;
-      font-size: 0.9rem;
-    }
-
-    .card-subtitle {
-      font-size: 0.85rem;
-      color: #555;
-      margin-bottom: 6px;
-    }
-
-    .card-location {
-      font-size: 0.8rem;
-      color: #888;
-      display: flex;
       align-items: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
     }
 
-    .badge {
-      background-color: #ffc6c6;
-      color: #be0000;
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: 12px;
-      margin-left: 8px;
+    .card-header .latest {
+      background-color: #ed0014;
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .card p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .card p span.label {
+      font-weight: bold;
+      color: #e60012;
+    }
+
+    .card p span.amount {
+      color: #555;
+      font-weight: bold;
     }
     </style>
     
   </head>
   <body>
-    <div class="container">
-      <!-- Tabs -->
-      <div class="tabs">
-        <div class="tab active">ประวัติการเข้ารับบริการ</div>
-        <div class="tab">นัดหมายบริการ</div>
-      </div>
-  
-      <!-- Card 1 -->
-      <div class="card">
-        <div class="card-header">
-          <span>28 กันยายน 2568</span>
-          <span class="badge">ล่าสุด</span>
-        </div>
-        <div class="card-subtitle">🚗 8กข-9999</div>
-        <div class="card-subtitle">
-          <span>📍บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</span>
-        </div>
-        <div class="card-subtitle">
-          <span>🛠️ตรวจเช็กระยะ 50,000 กม.</span>
-        </div>
-        <div class="card-location">
-          <span>เปลี่ยนถ่ายน้ำมันเครื่อง, ตรวจสอบเบรก, ตรวจสภาพยาง</span>
-        </div>
-        <div class="card-location">
-          <span>👨🏻‍🔧พนักงานรับรถ สมชาย บัวศรีงาม</span>
-        </div>
-        <div class="card-location">
-          <span>💰ค่าบริการ 3,784.75 บาท</span>
-        </div>
-      </div>
-  
-      <!-- Card 2 -->
-      <div class="card">
-        <div class="card-header">
-          <span>14 มกราคม 2568</span>
-        </div>
-        <div class="card-subtitle">🚗 8กข-9999</div>
-        <div class="card-subtitle">
-          <span>📍บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</span>
-        </div>
-        <div class="card-subtitle">
-          <span>🛠️เปลี่ยนยาง</span>
-        </div>
-        <div class="card-location">
-          <span>เปลี่ยนยางหน้า 2 เส้น</span>
-        </div>
-        <div class="card-location">
-          <span>👨🏻‍🔧พนักงานรับรถ มนตรี สุโชติรัตนา</span>
-        </div>
-        <div class="card-location">
-          <span>💰ค่าบริการ 4,000.00 บาท</span>
-        </div>
-      </div>
-  
-      <!-- Card 3 -->
-      <div class="card">
-        <div class="card-header">
-          <span>19 พฤศจิกายน 2567</span>
-        </div>
-        <div class="card-subtitle">🚗 8กข-9999</div>
-        <div class="card-subtitle">
-          <span>📍บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</span>
-        </div>
-        <div class="card-subtitle">
-          <span>🛠️ตรวจเช็กระยะ 40,000 กม.</span>
-        </div>
-        <div class="card-location">
-          <span>เปลี่ยนถ่ายน้ำมันเครื่อง, เปลี่ยนกรองอากาศ, ตรวจสอบแบตเตอรี่, ตรวจสภาพเบรก</span>
-        </div>
-        <div class="card-location">
-          <span>👨🏻‍🔧พนักงานรับรถ ศศิวิมล กระจ่างพันธุ์</span>
-        </div>
-        <div class="card-location">
-          <span>💰ค่าบริการ 5,250.00 บาท</span>
-        </div>
-      </div>
+    <div class="header">
+        <img class="h-auto max-w-lg mx-auto rounded-base" src="https://img5.pic.in.th/file/secure-sv1/logo__fixfit.webp" alt="image description">
+    </div>
 
+
+    <div class="tabs">
+        <div class="tab active">ประวัติการเข้ารับบริการ</div>
+        <div class="tab">นัดหมายเข้ารับบริการ</div>
+    </div>
+
+    <div class="container">
+
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-header">
+                28 พฤศจิกายน 2568
+                <div class="latest">ล่าสุด</div>
+            </div>
+            <p><span class="label">ทะเบียนรถ:</span> กก 567</p>
+            <p><span class="label">สาขา:</span> บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</p>
+            <p><span class="label">ประเภทบริการ:</span> ตรวจเช็กระยะ 50,000 กม.</p>
+            <p><span class="label">รายละเอียด:</span> เปลี่ยนถ่ายน้ำมันเครื่อง, ตรวจสอบเบรก, ตรวจสภาพยาง</p>
+            <p><span class="label">พนักงานรับรถ:</span> สมชาย ปวศรีงาม</p>
+            <p><span class="label">ค่าบริการ:</span> <span class="amount">3,784.75 บาท</span></p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-header">
+                14 มกราคม 2568
+            </div>
+            <p><span class="label">ทะเบียนรถ:</span> กก 567</p>
+            <p><span class="label">สาขา:</span> บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</p>
+            <p><span class="label">ประเภทบริการ:</span> ตรวจเช็กระยะ 40,000 กม.</p>
+            <p><span class="label">รายละเอียด:</span> เปลี่ยนถ่ายน้ำมันเครื่อง, เปลี่ยนกรองอากาศ, ตรวจสอบแบตเตอรี่, ตรวจสภาพเบรก</p>
+            <p><span class="label">พนักงานรับรถ:</span> ศักดิ์ กระจ่างพันธุ์</p>
+            <p><span class="label">ค่าบริการ:</span> <span class="amount">3,200.00 บาท</span></p>
+        </div>
+
+    <script>
+      window.onload = function () {
+
+        liff.init({ liffId: "2008586830-gDpZdXmV" })
+          .then(() => {
+
+            if (liff.isLoggedIn()) {
+              const x = document.getElementById("abc");
+
+              x.onclick = () => {
+                sendMessage();
+              };
+
+              console.log("User already logged in");
+            } else {
+              liff.login();
+            }
+
+          })
+          .catch((err) => {
+            console.error("LIFF init error:", err);
+          });
+
+      };
+
+      function sendMessage() {
+        liff.sendMessages([
+          {
+            type: "text",
+            text: "Hello, World!",
+          },
+        ])
+        .then(() => {
+          liff.closeWindow();
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+      }
+    </script>
   </body>
   </html>
