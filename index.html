@@ -210,34 +210,47 @@ appointmentTab.addEventListener('click', () => {
   historyNotice.classList.add('hidden');
 });
 
-async function main() {
-      try {
-        await liff.init({ liffId: "2008586830-gDpZdXmV" });
+ window.onload = function () {
 
-        // Force logout first
-        if (liff.isLoggedIn()) {
-          liff.logout();  // logs out the user
-        }
+        liff.init({ liffId: "2008586830-gDpZdXmV" })
+          .then(() => {
+            
+            if (liff.isLoggedIn()) {
+              // If logged in, show the content
+              document.getElementById('pageContent').classList.remove('hidden');
+              
+              const x = document.getElementById("abc");
 
-        // Force login
-        if (!liff.isLoggedIn()) {
-          liff.login(); // Redirects to LINE login
-          return;
-        }
+              x.onclick = () => {
+                sendMessage();
+              };
 
-        // If logged in, show the content
-        document.getElementById('pageContent').classList.remove('hidden');
+              console.log("User already logged in");
+            } else {
+              liff.login();
+            }
 
-        // Optional: you can get user profile
-        const profile = await liff.getProfile();
-        console.log("User profile:", profile);
+          })
+          .catch((err) => {
+            console.error("LIFF init error:", err);
+          });
 
-      } catch (err) {
-        console.error("LIFF init error:", err);
+      };
+
+      function sendMessage() {
+        liff.sendMessages([
+          {
+            type: "text",
+            text: "Hello, World!",
+          },
+        ])
+        .then(() => {
+          liff.closeWindow();
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
       }
-    }
-
-    main();
-  </script>
+    </script>
 </body>
 </html>
