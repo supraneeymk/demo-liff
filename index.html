@@ -7,54 +7,90 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+    <title>Service History</title>
+    <link href="/src/style.css" rel="stylesheet">
   </head>
   <body>
-<button type="button" id="abc" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl font-medium rounded-xl text-sm px-4 py-2.5">
-Pink to Orange
-</button>
-
-<script>
-window.onload = function () {
-
-  liff.init({ liffId: "2008586830-gDpZdXmV" })
-    .then(() => {
-
-      if (liff.isLoggedIn()) {
-        const x = document.getElementById("abc");
-
-        x.onclick = () => {
-          sendMessage();
-        };
-
-        console.log("User already logged in");
-      } else {
-        liff.login();
-      }
-
-    })
-    .catch((err) => {
-      console.error("LIFF init error:", err);
-    });
-
-};
-
-function sendMessage() {
-  liff.sendMessages([
-    {
-      type: "text",
-      text: "Hello, World!",
-    },
-  ])
-  .then(() => {
-    liff.closeWindow();
-  })
-  .catch((err) => {
-    console.log("error", err);
-  });
-}
-</script>
-
-
-
+    <div class="container">
+      <!-- Tabs -->
+      <div class="tabs">
+        <div class="tab active">ประวัติการเข้ารับบริการ</div>
+        <div class="tab">นัดหมายบริการ</div>
+      </div>
+  
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-header">
+          <span>28 กันยายน 2568</span>
+          <span class="badge">ล่าสุด</span>
+        </div>
+        <div class="card-subtitle">🚗 8กข-9999</div>
+        <div class="card-subtitle">
+          <span>📍บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</span>
+        </div>
+        <div class="card-subtitle">
+          <span>🛠️ตรวจเช็กระยะ 10,000 กม.</span>
+        </div>
+        <div class="card-location">
+          <span>เปลี่ยนถ่ายน้ำมันเครื่อง, ตรวจสอบเบรก, ตรวจสภาพยาง</span>
+        </div>
+        <div class="card-location">
+          <span>👨🏻‍🔧พนักงานรับรถ สมชาย บัวศรีงาม</span>
+        </div>
+        <div class="card-location">
+          <span>💰ค่าบริการ 3,784.75 บาท</span>
+        </div>
+      </div>
+  
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-header">
+          <span>28 กันยายน 2568</span>
+          <span class="badge">ล่าสุด</span>
+        </div>
+        <div class="card-subtitle">🚗 8กข-9999</div>
+        <div class="card-subtitle">
+          <span>📍บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</span>
+        </div>
+        <div class="card-subtitle">
+          <span>🛠️ตรวจเช็กระยะ 10,000 กม.</span>
+        </div>
+        <div class="card-location">
+          <span>เปลี่ยนถ่ายน้ำมันเครื่อง, ตรวจสอบเบรก, ตรวจสภาพยาง</span>
+        </div>
+        <div class="card-location">
+          <span>👨🏻‍🔧พนักงานรับรถ สมชาย บัวศรีงาม</span>
+        </div>
+        <div class="card-location">
+          <span>💰ค่าบริการ 3,784.75 บาท</span>
+        </div>
+      </div>
+  
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="card-header">
+          <span>28 กันยายน 2568</span>
+          <span class="badge">ล่าสุด</span>
+        </div>
+        <div class="card-subtitle">🚗 8กข-9999</div>
+        <div class="card-subtitle">
+          <span>📍บริษัท เจริญไทยมอเตอร์ เซลส์ จำกัด</span>
+        </div>
+        <div class="card-subtitle">
+          <span>🛠️ตรวจเช็กระยะ 10,000 กม.</span>
+        </div>
+        <div class="card-location">
+          <span>เปลี่ยนถ่ายน้ำมันเครื่อง, ตรวจสอบเบรก, ตรวจสภาพยาง</span>
+        </div>
+        <div class="card-location">
+          <span>👨🏻‍🔧พนักงานรับรถ สมชาย บัวศรีงาม</span>
+        </div>
+        <div class="card-location">
+          <span>💰ค่าบริการ 3,784.75 บาท</span>
+        </div>
+      </div>
+    <button type="button" id="abc" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl font-medium rounded-xl text-sm px-4 py-2.5">
+    Pink to Orange
+    </button>
   </body>
-</html>
+  </html>
