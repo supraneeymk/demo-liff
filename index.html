@@ -48,10 +48,16 @@
     }
 
     /* Container for history cards */
+    .container-header {
+      max-width: 500px;
+      margin: 0px auto;
+      padding: 0 0px;
+    }
+
     .container {
       max-width: 500px;
-      margin: 20px auto;
-      padding: 0 10px;
+      margin: 15px auto;
+      padding: 0 15px;
     }
 
     .card {
@@ -98,6 +104,9 @@
     
   </head>
   <body>
+    
+  <div class="container-header">  
+
     <div class="header">
         <img class="h-auto max-w-lg mx-auto rounded-base" src="https://img5.pic.in.th/file/secure-sv1/logo__fixfit.webp" alt="image description">
     </div>
@@ -107,9 +116,9 @@
         <div class="tab active">ประวัติการเข้ารับบริการ</div>
         <div class="tab">นัดหมายเข้ารับบริการ</div>
     </div>
-
-    <div class="container">
-
+  </div>
+    
+    <div class="container">  
         <!-- Card 1 -->
         <div class="card">
             <div class="card-header">
@@ -136,6 +145,7 @@
             <p><span class="label">พนักงานรับรถ:</span> ศักดิ์ กระจ่างพันธุ์</p>
             <p><span class="label">ค่าบริการ:</span> <span class="amount">3,200.00 บาท</span></p>
         </div>
+</div>
 
     <script>
       window.onload = function () {
