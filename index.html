@@ -104,6 +104,48 @@
     
   </head>
   <body>
+<script>
+      window.onload = function () {
+
+        liff.init({ liffId: "2008586830-gDpZdXmV" })
+          .then(() => {
+
+            if (liff.isLoggedIn()) {
+              const x = document.getElementById("abc");
+
+              x.onclick = () => {
+                sendMessage();
+              };
+
+              console.log("User already logged in");
+            } else {
+              liff.login();
+            }
+
+          })
+          .catch((err) => {
+            console.error("LIFF init error:", err);
+          });
+
+      };
+
+      function sendMessage() {
+        liff.sendMessages([
+          {
+            type: "text",
+            text: "Hello, World!",
+          },
+        ])
+        .then(() => {
+          liff.closeWindow();
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+      }
+    </script>
+
+
     
 <div class="container-header">  
 
@@ -167,45 +209,6 @@
         
 </div>
 
-    <script>
-      window.onload = function () {
-
-        liff.init({ liffId: "2008586830-gDpZdXmV" })
-          .then(() => {
-
-            if (liff.isLoggedIn()) {
-              const x = document.getElementById("abc");
-
-              x.onclick = () => {
-                sendMessage();
-              };
-
-              console.log("User already logged in");
-            } else {
-              liff.login();
-            }
-
-          })
-          .catch((err) => {
-            console.error("LIFF init error:", err);
-          });
-
-      };
-
-      function sendMessage() {
-        liff.sendMessages([
-          {
-            type: "text",
-            text: "Hello, World!",
-          },
-        ])
-        .then(() => {
-          liff.closeWindow();
-        })
-        .catch((err) => {
-          console.log("error", err);
-        });
-      }
-    </script>
+    
   </body>
   </html>
