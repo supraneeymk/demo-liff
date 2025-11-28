@@ -210,8 +210,34 @@ appointmentTab.addEventListener('click', () => {
   historyNotice.classList.add('hidden');
 });
 
+async function main() {
+      try {
+        await liff.init({ liffId: "2008586830-gDpZdXmV" });
 
+        // Force logout first
+        if (liff.isLoggedIn()) {
+          liff.logout();  // logs out the user
+        }
+
+        // Force login
+        if (!liff.isLoggedIn()) {
+          liff.login(); // Redirects to LINE login
+          return;
+        }
+
+        // If logged in, show the content
+        document.getElementById('pageContent').classList.remove('hidden');
+
+        // Optional: you can get user profile
+        const profile = await liff.getProfile();
+        console.log("User profile:", profile);
+
+      } catch (err) {
+        console.error("LIFF init error:", err);
+      }
+    }
+
+    main();
   </script>
-</script>
 </body>
 </html>
